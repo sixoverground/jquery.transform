@@ -50,6 +50,7 @@ article {
 	margin: 0 auto;
 	width: 800px;
 	margin-bottom: 20px;
+	overflow: hidden;
 }
 
 article .description {

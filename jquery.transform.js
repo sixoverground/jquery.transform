@@ -34,29 +34,29 @@
 				var queue = true;
 				
 				// Calculate transform property.
-				if (!settings.translate && (settings.x || settings.y)) {
+				if (settings.translate === undefined && (settings.x !== undefined || settings.y !== undefined)) {
 					settings.translate = ['0px', '0px'];
-					if (settings.x) settings.translate[0] = settings.x;
-					if (settings.y) settings.translate[1] = settings.y;					
+					if (settings.x !== undefined) settings.translate[0] = settings.x;
+					if (settings.y !== undefined) settings.translate[1] = settings.y;					
 				}
 				
 				// Calculate scale property.
-				if (settings.scale && typeof settings.scale !== 'object') {
+				if (settings.scale !== undefined && typeof settings.scale !== 'object') {
 					settings.scale = [settings.scale, settings.scale];
 				}
-				if (!settings.scale && (settings.scaleX || settings.scaleY)) {
+				if (settings.scale === undefined && (settings.scaleX !== undefined || settings.scaleY !== undefined)) {
 					settings.scale = [1, 1];
-					if (settings.scaleX) settings.scale[0] = settings.scaleX;
-					if (settings.scaleY) settings.scale[1] = settings.scaleY;					
+					if (settings.scaleX !== undefined) settings.scale[0] = settings.scaleX;
+					if (settings.scaleY !== undefined) settings.scale[1] = settings.scaleY;					
 				}
 
 				// Calculate skew property.
-				if (!settings.skew && (settings.skewX || settings.skewY)) {
+				if (settings.skew === undefined && (settings.skewX !== undefined || settings.skewY !== undefined)) {
 					settings.skew = ['0deg', '0deg'];
-					if (settings.skewX) settings.skew[0] = settings.skewX;
-					if (settings.skewY) settings.skew[1] = settings.skewY;					
+					if (settings.skewX !== undefined) settings.skew[0] = settings.skewX;
+					if (settings.skewY !== undefined) settings.skew[1] = settings.skewY;					
 				}
-																	
+				
 				// Create the animation keyframes style.
 				var animationName = 'animation' + Transform.animationIndex++;
 				var style = '@-webkit-keyframes ' + animationName + ' { ';
@@ -64,22 +64,25 @@
 				// from
 				style += '0% {';
 				style += '-webkit-transform: ' + $this.css('-webkit-transform') + ';';				
-				style += 'opacity: ' + $this.css('opacity') + ';';				
+				if (settings.opacity !== undefined) {
+					if ($this.css('opacity') !== undefined) style += 'opacity: ' + $this.css('opacity') + ';';		
+					else style += 'opacity: 1;';		
+				}
 				style += '}'; // end from
 			
 				// to
 				style += '100% {';				
 				style += '-webkit-transform:';
-				if (settings.translate) style += ' translate(' + settings.translate[0] + ', ' + settings.translate[1] + ')';
-				if (settings.rotate) style += ' rotate(' + settings.rotate + ')';
-				if (settings.scale) style += ' scale(' + settings.scale[0] + ', ' + settings.scale[1] + ')';
-				if (settings.skew) style += ' skew(' + settings.skew[0] + ', ' + settings.skew[1] + ')';
+				if (settings.translate !== undefined) style += ' translate(' + settings.translate[0] + ', ' + settings.translate[1] + ')';
+				if (settings.rotate !== undefined) style += ' rotate(' + settings.rotate + ')';
+				if (settings.scale !== undefined) style += ' scale(' + settings.scale[0] + ', ' + settings.scale[1] + ')';
+				if (settings.skew !== undefined) style += ' skew(' + settings.skew[0] + ', ' + settings.skew[1] + ')';
 				style += ';'				
-				if (settings.opacity) style += 'opacity: ' + settings.opacity + ';';				
+				if (settings.opacity !== undefined) style += 'opacity: ' + settings.opacity + ';';				
 				style += '}'; // end to
 				
 				style += '}'; // end keyframes
-					
+									
 				// Add the animation keyframes to a stylesheet.
 				var stylesheet = Transform.getStylesheet();
 				stylesheet.insertRule(style, 0);	
@@ -97,7 +100,7 @@
 				// Handle the animation completion event.
 				$this.one('webkitAnimationEnd', function(){
 					Transform.removeAnimation(stylesheet, animationName);
-					if (settings.complete) settings.complete.apply(this);
+					if (settings.complete !== undefined) settings.complete.apply(this);
 				});				
 				
 			});

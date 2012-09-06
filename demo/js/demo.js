@@ -38,6 +38,19 @@ $(function(){
 			}
 		});
 	});
+
+	$('#opacity button').click(function(e){				
+		$(this).parents('article').find('.box').transform({
+			opacity: 0,
+			duration: '1s',
+			complete: function() {
+				$(this).transform({
+					opacity: 1,
+					duration: '1s'
+				});
+			}
+		});
+	});
 	
 	
 });
