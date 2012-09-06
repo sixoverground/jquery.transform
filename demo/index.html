@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Transform - Hardware accelerated animation on iOS and Android</title>
+	<link rel="stylesheet" href="css/reset.css"></link>
+	<link rel="stylesheet" href="css/demo.css"></link>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.transform.js"></script>
+	<script type="text/javascript" src="js/demo.js"></script>
+</head>
+<body>
+	
+	<h1>jQuery Transform</h1>
+	<p>Hardware accelerated animation on iOS and Android &mdash; v0.1a</p>
+	
+	<h2>How to use</h2>
+	<p>Include this script after jQuery.</p>
+	
+	<h2>Translate</h2>
+	
+	<article id="translate-x">
+		<div class="description">
+			<h3>Translate X</h3>
+			<code>$('.box').transform({ x: '90px', duration: '1s' });</code>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<article id="translate-y">
+		<div class="description">
+			<h3>Translate Y</h3>
+			<code>$('.box').transform({ y: '30px', duration: '1s' });</code>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<article id="translate">
+		<div class="description">
+			<h3>Translate X and Y</h3>
+			<pre>$('.box').transform({ 
+  translate: ['200px', '20px'], 
+  duration: '1s' 
+});</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+	
+</body>
+</html>
