@@ -17,12 +17,15 @@
 	<h2>How to use</h2>
 	<p>Include this script after jQuery.</p>
 	
+	<!-- ========== Translate ========== -->
+	
 	<h2>Translate</h2>
+	<p>Move an element to a new position.</p>
 	
 	<article id="translate-x">
 		<div class="description">
 			<h3>Translate X</h3>
-			<code>$('.box').transform({ x: '90px', duration: '1s' });</code>
+			<pre>$('.box').transform({ x: '90px' });</pre>
 			<button>Animate</button>
 		</div>
 		<div class="field">
@@ -33,7 +36,7 @@
 	<article id="translate-y">
 		<div class="description">
 			<h3>Translate Y</h3>
-			<code>$('.box').transform({ y: '30px', duration: '1s' });</code>
+			<pre>$('.box').transform({ y: '30px' });</pre>
 			<button>Animate</button>
 		</div>
 		<div class="field">
@@ -44,10 +47,7 @@
 	<article id="translate">
 		<div class="description">
 			<h3>Translate X and Y</h3>
-			<pre>$('.box').transform({ 
-  translate: ['200px', '20px'], 
-  duration: '1s' 
-});</pre>
+			<pre>$('.box').transform({ translate: ['200px', '20px'] });</pre>
 			<button>Animate</button>
 		</div>
 		<div class="field">
@@ -55,12 +55,118 @@
 		</div>
 	</article>
 
+	<!-- ========== Rotate ========== -->
+	
+	<h2>Rotate</h2>
+	<p>Change the rotation of an element.</p>
+	
+	<article id="rotate">
+		<div class="description">
+			<h3>Rotate</h3>
+			<pre>$('.box').transform({ rotate: '30deg' });</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<!-- ========== Scale ========== -->
+
+	<h2>Scale</h2>
+	<p>Resize an element's width and height.</p>
+
+	<article id="scale">
+		<div class="description">
+			<h3>Scale Evenly</h3>
+			<pre>$('.box').transform({ scale: 1.2 });</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<article id="scale-x">
+		<div class="description">
+			<h3>Scale Horizontally</h3>
+			<pre>$('.box').transform({ scaleX: 2 });</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<article id="scale-y">
+		<div class="description">
+			<h3>Scale Vertically</h3>
+			<pre>$('.box').transform({ scaleY: 1.5 });</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<article id="scale-both">
+		<div class="description">
+			<h3>Scale Horizontally and Vertically</h3>
+			<pre>$('.box').transform({ scale: [2, 1.5] });</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<!-- ========== Skew ========== -->
+	
+	<h2>Skew</h2>
+	<p>Skew an element on either axis.</p>
+	
+	<article id="skew-x">
+		<div class="description">
+			<h3>Skew X</h3>
+			<pre>$('.box').transform({ skewX: '30deg' });</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<article id="skew-y">
+		<div class="description">
+			<h3>Skew Y</h3>
+			<pre>$('.box').transform({ skewY: '30deg' });</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<article id="skew">
+		<div class="description">
+			<h3>Skew X and Y</h3>
+			<pre>$('.box').transform({ skew: ['30deg', '-30deg'] });</pre>
+			<button>Animate</button>
+		</div>
+		<div class="field">
+			<div class="box"></div>
+		</div>
+	</article>
+
+	<!-- ========== Opacity ========== -->
+
 	<h2>Opacity</h2>
+	<p>You can also animate regularly available CSS properties.</p>
 	
 	<article id="opacity">
 		<div class="description">
 			<h3>Opacity</h3>
-			<code>$('.box').transform({ opacity: 0, duration: '1s' });</code>
+			<pre>$('.box').transform({ opacity: 0 });</pre>
 			<button>Animate</button>
 		</div>
 		<div class="field">

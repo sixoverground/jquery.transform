@@ -49,6 +49,7 @@ article {
 	position: relative;
 	margin: 0 auto;
 	width: 800px;
+	min-height: 102px;
 	margin-bottom: 20px;
 	overflow: hidden;
 }
@@ -68,19 +69,33 @@ article .description pre {
 }
 
 article .field {
+	position: absolute;
+	left: 0;
+	top: 0;
 	width: 400px;
 	height: 100px;
 	border: 1px solid #aaa;
 	background-color: #eee;
+	overflow: hidden;
+}
+
+article .field .ghost {
+	position: absolute;
+	left: 175px;
+	top: 25px;
+	width: 50px;
+	height: 50px;
+	background-color: #ffffff;
 }
 
 article .field .box {
 	position: absolute;
-	left: 5px;
-	top: 5px;
+	left: 175px;
+	top: 25px;
 	width: 50px;
 	height: 50px;
 	background-color: #53829a;
 }
+
 
 

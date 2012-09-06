@@ -20,7 +20,7 @@
 			var settings = $.extend( {
 								
 				// transition settings
-				duration: '0s',
+				duration: '400ms',
 				easing: 'ease',
 				delay: '0s',
 				origin: ['50%', '50%'],
@@ -63,11 +63,8 @@
 				
 				// from
 				style += '0% {';
-				style += '-webkit-transform: ' + $this.css('-webkit-transform') + ';';				
-				if (settings.opacity !== undefined) {
-					if ($this.css('opacity') !== undefined) style += 'opacity: ' + $this.css('opacity') + ';';		
-					else style += 'opacity: 1;';		
-				}
+				if ($this.css('-webkit-transform') !== undefined) style += '-webkit-transform: ' + $this.css('-webkit-transform') + ';';				
+				if ($this.css('opacity') !== undefined) style += 'opacity: ' + $this.css('opacity') + ';';		
 				style += '}'; // end from
 			
 				// to
