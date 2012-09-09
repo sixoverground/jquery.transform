@@ -101,6 +101,9 @@
 					$this.data('opacity', settings.opacity);
 				}
 				
+				// Always have some duration
+				if (parseInt(settings.duration) == 0) settings.duration = '1ms';
+				
 				// Create the animation keyframes style.
 				var animationName = 'animation' + Transform.animationIndex++;
 				var style = '@-webkit-keyframes ' + animationName + ' { ';
@@ -114,8 +117,8 @@
 				
 				// from
 				style += '0% { ';
-				style += '-webkit-transform:' + transforms + ';';							
-				if ($this.css('opacity') !== undefined) style += 'opacity: ' + $this.css('opacity') + '; ';		
+				style += '-webkit-transform:' + transforms + '; ';							
+				if (origins.opacity !== undefined) style += 'opacity: ' + origins.opacity + '; ';		
 				style += '} '; // end from
 			
 				// to
@@ -140,7 +143,10 @@
 				styleClass += '-webkit-animation-timing-function: ' + settings.easing + '; ';
 				styleClass += '-webkit-animation-delay: ' + settings.delay + '; ';
 				styleClass += '-webkit-animation-fill-mode: forwards; ';
-				styleClass += '} ';				
+				styleClass += '} ';	
+				
+				//console.log(style);
+				//console.log(styleClass);			
 									
 				// Add the animation keyframes to a stylesheet.
 				var stylesheet = Transform.getStylesheet();
